@@ -5,8 +5,6 @@ const WebpackAliyunOss = require('webpack-aliyun-oss');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-// 识别某些webpack类别的错误，并对他们进行整理、聚合、优先级的排列
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 console.log('process.env.ENV-', process.env.ENV);
 const { merge } = require('webpack-merge');
@@ -45,7 +43,6 @@ const prodConfig = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename({chunk}) {
           if (chunk.name.includes('immerse')) {
